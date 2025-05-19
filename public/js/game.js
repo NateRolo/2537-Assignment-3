@@ -236,6 +236,15 @@ async function startGame() {
   const selectedDifficultyOpt = $("#difficulty-select").find("option:selected");
   currentTotalPairs = parseInt(selectedDifficultyOpt.data("pairs")) || 3;
   
+  // Add or remove class for specific grid modes
+  $("#game_grid").removeClass("hard-mode-grid medium-mode-grid"); // Clear previous mode classes
+  if (currentTotalPairs === 9) { // Assuming 9 pairs (18 cards) is for the 6x3 hard mode grid
+    $("#game_grid").addClass("hard-mode-grid");
+  } else if (currentTotalPairs === 6) { // Assuming 6 pairs (12 cards) is for the 4x3 medium mode grid
+    $("#game_grid").addClass("medium-mode-grid");
+  }
+  // No specific class for other difficulties, they will use the default #game_grid styling
+  
   clicksMade = 0;
   matchesFound = 0;
   resetBoardState();
@@ -363,6 +372,7 @@ function resetGameLogic() {
   updateTimerDisplay();
   $("#timer").text("--:--");
   
+  $("#game_grid").removeClass("hard-mode-grid medium-mode-grid"); // Ensure classes are removed on reset
   $("#game_grid").empty().html("<p class='game-placeholder-message'>Welcome to Pokémon Memory! Select difficulty and press Start.<br><br><strong>How to Play:</strong> Flip cards to find matching pairs of Pokémon. Match all pairs before the timer runs out!<br><br><strong>Power-Up:</strong> Match 2 pairs in a row to earn a Power-Up! Activate it to briefly reveal all non-matched cards.</p>").removeClass("game-error game-loading game-loaded success");
   hideMessage();
 

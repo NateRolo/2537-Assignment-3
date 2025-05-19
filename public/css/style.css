@@ -163,15 +163,28 @@ body.dark-theme #status-header h1 {
 #game_grid {
   border: 1px solid #3b4cca;
   width: 90%;
+  max-width: 600px;
   margin: 25px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   padding: 12px;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* CSS for hard mode grid (6 columns) */
+#game_grid.hard-mode-grid {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 950px; /* Adjusted for 6 cards + gaps + padding */
+}
+
+/* CSS for medium mode grid (4 columns) */
+#game_grid.medium-mode-grid {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 650px; /* Adjusted for 4 cards + gaps + padding */
 }
 
 .card {
