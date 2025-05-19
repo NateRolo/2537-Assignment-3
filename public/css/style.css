@@ -94,18 +94,34 @@ body.dark-theme #status-header h1 {
   text-align: center;
 }
 
-#time-left-stat {
-  font-size: 2.5em;
-  padding: 20px 30px;
-  min-width: 250px;
-  font-weight: bold;
+#game-stats #time-left-stat {
+  font-size: 0;
+  color: transparent;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  min-width: auto;
+  font-weight: normal;
+  text-align: center;
 }
 
-#timer {
-  font-size: 1.5em;
+#game-stats #timer {
+  font-size: 5rem;
   font-weight: bold;
-  display: inline-block;
-  margin-left: 10px;
+  color: #3b4cca;
+  line-height: normal;
+  display: block;
+  text-align: center;
+  background-color: transparent;
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* Dark theme specific color for the timer */
+body.dark-theme #game-stats #timer {
+  color: #ffde00;
 }
 
 #other-stats-row {
